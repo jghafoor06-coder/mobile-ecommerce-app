@@ -1,0 +1,211 @@
+{
+  "categoriesdata": [
+    "Electronics",
+    "Fashion",
+    "Home",
+    "Fitness",
+    "Accessories"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "category": "Electronics",
+      "subcategory": "Audio",
+      "price": 49.99,
+      "purchased": 340,
+      "description": "Experience immersive studio-quality sound with these high-fidelity wireless headphones. Featuring active noise-canceling technology, deep resonant bass, and an ergonomic over-ear design, they provide maximum comfort for extended listening sessions. The ultra-efficient battery offers up to 40 hours of continuous playback on a single charge, making them the perfect companion for travel, work, or leisure.",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Smart Watch Series 7",
+      "category": "Electronics",
+      "subcategory": "Wearables",
+      "price": 129.99,
+      "purchased": 210,
+      "description": "Elevate your lifestyle with the Series 7 Smartwatch, featuring a stunning edge-to-edge Retina display and advanced health monitoring sensors. Track your heart rate, blood oxygen levels, and daily activity with precision accuracy. With seamless smartphone integration for notifications, music control, and GPS tracking, this sleek wearable is designed to keep you connected and motivated throughout your busiest days.",
+      "image": "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Gaming Mouse",
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "price": 24.99,
+      "purchased": 410,
+      "description": "Engineered for elite gamers, this high-precision optical gaming mouse features a customizable 12,000 DPI sensor for pixel-perfect tracking. The ergonomic lightweight chassis is equipped with programmable side buttons and dynamic RGB lighting zones that can be synchronized with your setup. Durable mechanical switches ensure a crisp click response, giving you the competitive edge in fast-paced gameplay.",
+      "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Mechanical Keyboard",
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "price": 79.99,
+      "purchased": 150,
+      "description": "Refine your typing experience with this premium mechanical keyboard, featuring tactile switches that offer satisfying feedback and lightning-fast actuation. Built with an aircraft-grade aluminum frame for maximum durability, it includes full N-key rollover, dedicated media controls, and vibrant per-key RGB backlighting. Whether you are coding or gaming, this keyboard provides the ultimate blend of performance and style.",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 5,
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "subcategory": "Audio",
+      "price": 44.99,
+      "purchased": 330,
+      "description": "Bring the party anywhere with this rugged, waterproof Bluetooth speaker that delivers surprisingly powerful 360-degree sound. Its compact design houses dual passive radiators for deep, punchy bass and crystal-clear highs. With a shock-resistant exterior and a long-lasting internal battery, it is specifically designed to handle outdoor adventures while providing a high-quality soundtrack to your life.",
+      "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 6,
+      "name": "Wireless Earbuds",
+      "category": "Electronics",
+      "subcategory": "Audio",
+      "price": 34.99,
+      "purchased": 420,
+      "description": "Discover true wireless freedom with these ultra-compact earbuds featuring advanced Bluetooth 5.2 technology for a stable, lag-free connection. The custom-tuned drivers deliver a rich, balanced audio profile, while the integrated dual microphones ensure clear voice calls even in noisy environments. The pocket-sized charging case provides multiple full charges, ensuring your music never has to stop.",
+      "image": "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 7,
+      "name": "Men's Casual T-Shirt",
+      "category": "Fashion",
+      "subcategory": "Men",
+      "price": 14.99,
+      "purchased": 520,
+      "description": "Crafted from 100% premium organic cotton, this casual t-shirt offers a tailored fit that strikes the perfect balance between style and comfort. The breathable, moisture-wicking fabric is pre-shrunk to maintain its shape after multiple washes. Available in a variety of classic colors, it serves as a versatile staple for any modern wardrobe, layering effortlessly under jackets or standing alone for a relaxed look.",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 8,
+      "name": "Men's Denim Jeans",
+      "category": "Fashion",
+      "subcategory": "Men",
+      "price": 34.99,
+      "purchased": 310,
+      "description": "A timeless classic reimagined for modern wear, these straight-leg denim jeans are constructed from heavy-duty yet flexible denim for all-day comfort. Featuring reinforced stitching at stress points and a traditional five-pocket design, they offer a rugged aesthetic that matures with age. Whether paired with boots or sneakers, these jeans provide a durable and stylish foundation for any casual outfit.",
+      "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 9,
+      "name": "Women's Leggings",
+      "category": "Fashion",
+      "subcategory": "Women",
+      "price": 24.99,
+      "purchased": 280,
+      "description": "Maximize your athletic performance with these high-performance running leggings, engineered with a four-way stretch fabric that moves with your body. The high-rise waistband provides secure coverage and support, while the flat-lock seams prevent chafing during intense workouts. Integrated side pockets allow for convenient storage of your phone and keys, making these a must-have for runners and fitness enthusiasts alike.",
+      "image": "https://images.unsplash.com/photo-1506629905607-d405b7a5e3b8?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 10,
+      "name": "Running Shoes",
+      "category": "Fashion",
+      "subcategory": "Footwear",
+      "price": 59.99,
+      "purchased": 275,
+      "description": "Designed for speed and endurance, these lightweight running shoes feature a responsive foam midsole that provides exceptional energy return with every stride. The breathable engineered mesh upper keeps your feet cool and dry, while the durable rubber outsole offers superior traction on both road and track surfaces. Perfect for long-distance training or casual morning jogs, they offer a perfect harmony of support and flexibility.",
+      "image": "https://images.unsplash.com/photo-1528701800489-20be3c8fdf84?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 11,
+      "name": "LED Desk Lamp",
+      "category": "Home",
+      "subcategory": "Lighting",
+      "price": 19.99,
+      "purchased": 230,
+      "description": "Illuminate your workspace with this sleek, contemporary LED desk lamp featuring touch-sensitive controls and three distinct color temperature modes. The flexible gooseneck allows for precise light positioning, while the flicker-free LED technology reduces eye strain during long hours of study or work. With its minimalist footprint and integrated USB charging port, it is an essential addition to any modern home office.",
+      "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 12,
+      "name": "Digital Alarm Clock",
+      "category": "Home",
+      "subcategory": "Decor",
+      "price": 17.99,
+      "purchased": 260,
+      "description": "Start your day right with this minimalist digital alarm clock, featuring a large, easy-to-read LED display with adjustable brightness levels. Beyond its elegant wood-grain finish, it includes a smart sensor that displays the current room temperature and date. The dual-alarm function and gentle wake-up tones ensure you rise refreshed, making it a functional and aesthetic piece for any bedside table.",
+      "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 13,
+      "name": "Office Chair",
+      "category": "Home",
+      "subcategory": "Furniture",
+      "price": 149.99,
+      "purchased": 95,
+      "description": "Invest in your health and productivity with this premium ergonomic office chair. Designed with a breathable mesh backrest and adjustable lumbar support, it promotes healthy posture during long working hours. The chair features a multi-functional tilt mechanism, adjustable 3D armrests, and high-density foam cushioning to provide a personalized seating experience that meets the demands of any professional environment.",
+      "image": "https://images.unsplash.com/photo-1582582494700-7c2d1e1c1b09?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 14,
+      "name": "Ceramic Coffee Mug",
+      "category": "Home",
+      "subcategory": "Kitchen",
+      "price": 7.99,
+      "purchased": 720,
+      "description": "Enhance your morning ritual with this handcrafted ceramic coffee mug, featuring a wide-grip handle and a matte finish for a premium feel. The thick-walled construction provides excellent heat retention, keeping your favorite beverages hot for longer. Microwave and dishwasher safe, this durable and stylish mug is designed to withstand daily use while adding a touch of sophistication to your kitchenware collection.",
+      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 15,
+      "name": "Yoga Mat",
+      "category": "Fitness",
+      "subcategory": "Workout",
+      "price": 21.99,
+      "purchased": 350,
+      "description": "Elevate your practice with this eco-friendly, non-slip yoga mat that offers superior cushioning and stability. The 6mm thick TPE material provides essential joint support, while the textured surface ensures a firm grip even during the most challenging poses. Lightweight and easy to transport with the included carrying strap, it is the perfect surface for yoga, pilates, or general floor exercises.",
+      "image": "https://images.unsplash.com/photo-1554344058-8c7d7e4d8e90?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 16,
+      "name": "Resistance Bands",
+      "category": "Fitness",
+      "subcategory": "Workout",
+      "price": 12.99,
+      "purchased": 460,
+      "description": "Transform your home workout routine with this set of high-quality resistance bands, varying in tension levels from light to extra-heavy. Made from 100% natural latex, these durable bands are perfect for strength training, physical therapy, and improving mobility. Their versatile design allows you to target every major muscle group, making them a portable and effective alternative to heavy gym equipment.",
+      "image": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 17,
+      "name": "Women's Handbag",
+      "category": "Accessories",
+      "subcategory": "Bags",
+      "price": 39.99,
+      "purchased": 180,
+      "description": "Exude elegance with this versatile women's handbag, crafted from premium vegan leather with polished gold-tone hardware. The spacious interior features multiple organizational compartments to keep your essentials secure, while the adjustable shoulder strap allows for multiple carrying styles. Whether you are heading to a business meeting or a casual brunch, this stylish bag is the perfect finishing touch to any outfit.",
+      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 18,
+      "name": "Laptop Backpack",
+      "category": "Accessories",
+      "subcategory": "Bags",
+      "price": 29.99,
+      "purchased": 195,
+      "description": "Protect your tech in style with this professional laptop backpack, featuring a dedicated padded compartment that fits devices up to 15.6 inches. The water-resistant exterior fabric and reinforced zippers ensure your gear stays dry and secure in any weather. With an ergonomic airflow back design and multiple quick-access pockets, it is the ultimate companion for commuters, students, and frequent travelers.",
+      "image": "https://images.unsplash.com/photo-1514474959185-1472d4c4e0a6?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 19,
+      "name": "Stainless Steel Water Bottle",
+      "category": "Accessories",
+      "subcategory": "Daily Use",
+      "price": 9.99,
+      "purchased": 600,
+      "description": "Stay hydrated on the go with this double-walled, vacuum-insulated stainless steel water bottle. Designed to keep drinks ice-cold for 24 hours or steaming hot for 12, it features a leak-proof cap and a sweat-free exterior. The durable powder-coated finish provides a secure grip, while the BPA-free materials ensure your water stays fresh and clean all day long.",
+      "image": "https://images.unsplash.com/photo-1526403229833-3c2b59c9d8c4?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 20,
+      "name": "Portable Power Bank 10000mAh",
+      "category": "Accessories",
+      "subcategory": "Gadgets",
+      "price": 22.99,
+      "purchased": 390,
+      "description": "Never run out of power again with this ultra-slim 10,000mAh portable power bank. Equipped with dual USB output ports and intelligent fast-charging technology, it can charge multiple devices simultaneously at optimal speeds. The compact, lightweight design fits easily in your pocket or bag, and the LED power indicator ensures you always know exactly how much energy you have left for your next adventure.",
+      "image": "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
+    }
+  ]
+}

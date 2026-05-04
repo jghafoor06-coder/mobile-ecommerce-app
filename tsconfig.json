@@ -1,0 +1,8 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "types": ["jest"]
+  },
+  "include": ["**/*.ts", "**/*.tsx", "src/navigation/homestack/HomeStack.js", "App.jsx", "src/components/Categories.jsx", "src/components/Mybutton.jsx", "src/components/ProductCard.jsx", "src/components/SearchBar.jsx", "src/components/Swipers.jsx", "src/pages/category/Category.jsx", "src/pages/home/Home.jsx", "src/pages/searchpage/SearchPage.jsx", "src/pages/productdetail/ProductsDetail.jsx", "src/pages/cart/Cart.jsx", "src/pages/payments/Payments.jsx", "src/pages/checkout/Checkout.jsx"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}
