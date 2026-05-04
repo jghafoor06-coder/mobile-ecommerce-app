@@ -82,7 +82,7 @@ const ProductsDetail = ({ navigation }) => {
 
         <Animated.View
           style={styles.container}
-          entering={FadeInDown.delay(500).duration(800).easing(Easing.ease)}
+          entering={FadeInDown.delay(300).duration(800).easing(Easing.ease)}
         >
           <View style={styles.headerRow}>
             <Text style={styles.heading}>{product.title}</Text>
@@ -106,7 +106,7 @@ const ProductsDetail = ({ navigation }) => {
 
       <Animated.View
         style={styles.bottomContainer}
-        entering={FadeInDown.delay(100).duration(800).easing(Easing.ease)}
+        entering={FadeInDown.delay(300).duration(800).easing(Easing.ease)}
       >
         <TouchableOpacity
           style={styles.cartbutton}

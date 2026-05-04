@@ -25,7 +25,7 @@ const SecondHeader = ({
   return (
     <Animated.View
       style={styles.container}
-      entering={FadeInUp.delay(100).duration(800).easing(Easing.ease)}
+      entering={FadeInUp.delay(300).duration(800).easing(Easing.ease)}
     >
       {/* LEFT (Back) */}
       <View style={styles.left}>

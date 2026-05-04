@@ -104,7 +104,6 @@ const Cart = () => {
       <SecondHeader title="My Cart" showBack={true} showCart={true} />
 
       <View style={styles.maincontainer}>
-        
         {/* TOP */}
         <Animated.View
           style={styles.textcontainer}
