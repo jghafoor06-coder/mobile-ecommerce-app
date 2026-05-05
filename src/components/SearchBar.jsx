@@ -9,7 +9,7 @@ const SearchBar = () => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate('search')}>
       <Animated.View style={style.con}
-        entering={FadeInLeft.delay(300).duration(800).easing(Easing.ease)}
+        entering={FadeInLeft.delay(2000).duration(800).easing(Easing.ease)}
       >
         <TextInput
           placeholder="Search here ..."

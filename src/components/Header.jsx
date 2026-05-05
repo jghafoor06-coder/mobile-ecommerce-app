@@ -30,7 +30,7 @@ const Header = ({ scrollY }) => {
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}
-    entering={FadeInUp.delay(300).duration(800).easing(Easing.ease)}
+    entering={FadeInUp.delay(2000).duration(800).easing(Easing.ease)}
     >
       <View>
         <Text style={styles.smallText}>Delivery address</Text>

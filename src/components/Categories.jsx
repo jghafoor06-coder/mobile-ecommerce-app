@@ -21,7 +21,7 @@ const Categories = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Animated.Text style={styles.heading} entering={FadeInUp.delay(300).duration(800).easing(Easing.ease)}>
+      <Animated.Text style={styles.heading} entering={FadeInUp.delay(2000).duration(800).easing(Easing.ease)}>
         Category
       </Animated.Text>
 
@@ -32,7 +32,7 @@ const Categories = () => {
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <Animated.View
-            entering={FadeInUp.delay(500).duration(800).easing(Easing.ease)}
+            entering={FadeInUp.delay(2000).duration(800).easing(Easing.ease)}
           >
             <TouchableOpacity
               style={styles.itemContainer}

@@ -33,7 +33,7 @@ const Swiper = () => {
         renderItem={({ item }) => (
           <Animated.View
             style={{ marginHorizontal: 10, marginTop: 20 }}
-            entering={FadeInRight.delay(300).duration(800).easing(Easing.ease)}
+            entering={FadeInRight.delay(2000).duration(800).easing(Easing.ease)}
           >
             <Image
               source={{ uri: item.image }}
