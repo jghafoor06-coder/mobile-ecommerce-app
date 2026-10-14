@@ -43,7 +43,6 @@ export default Home;
 
 const styles = StyleSheet.create({
   bg: {
-    height: 'auto',
     backgroundColor: '#fff',
     padding: 4,
     flex: 1,

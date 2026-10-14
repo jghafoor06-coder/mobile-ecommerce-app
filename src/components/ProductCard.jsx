@@ -11,7 +11,8 @@ import {
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { getProducts } from '../api/api';
+// import { getProducts } from '../api/api';
+import { products } from  '../data/data.json'
 import Animated, { FadeInDown, Easing } from 'react-native-reanimated';
 
 const ProductCard = () => {
@@ -24,7 +25,7 @@ const ProductCard = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const productsData = await getProducts();
+        const productsData = await products;
         setData(productsData);
       } catch (err) {
         setError('523 error fetching products');
@@ -65,7 +66,7 @@ const ProductCard = () => {
 
             <View style={styles.content}>
               <Text numberOfLines={2} style={styles.name}>
-                {item.title}
+                {item.name}
               </Text>
 
               <Text style={styles.price}>${item.price}</Text>
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   img: {
     width: '100%',
     height: 100,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
 
   content: {

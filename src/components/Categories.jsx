@@ -21,7 +21,10 @@ const Categories = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Animated.Text style={styles.heading} entering={FadeInUp.delay(2000).duration(800).easing(Easing.ease)}>
+      <Animated.Text
+        style={styles.heading}
+        entering={FadeInUp.delay(2000).duration(800).easing(Easing.ease)}
+      >
         Category
       </Animated.Text>
 
@@ -70,8 +73,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   iconBox: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',

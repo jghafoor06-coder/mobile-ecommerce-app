@@ -22,22 +22,34 @@ import Animated, {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { getSingleProduct } from '../../api/api';
 import SecondHeader from '../../components/SecondHeader';
+import { products } from '../../data/data.json';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addtowishlist,
+  removefromwishlist,
+} from '../../redux/wishlist/WishlistSlice';
 
 const ProductsDetail = ({ navigation }) => {
   const route = useRoute();
   const { productId } = route.params;
 
+  const dispatch = useDispatch();
+
+  const wishlistItems = useSelector(state => state.wishlist.item);
+
+  const isWishlisted = wishlistItems.some(
+    item => String(item.id) === String(product?.id),
+  );
+
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const productId = route.params.productId || route.params.id;
-      const product = await getSingleProduct(productId);
-      setProduct(product);
-    };
-
-    fetchProduct();
+    const product = products.find(
+      item => String(item.id) === String(productId),
+    );
+    setProduct(product || null);
+    setLoading(false);
   }, [productId]);
 
   useEffect(() => {
@@ -85,10 +97,24 @@ const ProductsDetail = ({ navigation }) => {
           entering={FadeInDown.delay(300).duration(800).easing(Easing.ease)}
         >
           <View style={styles.headerRow}>
-            <Text style={styles.heading}>{product.title}</Text>
-            <TouchableOpacity activeOpacity={0.5}>
+            <Text style={styles.heading}>{product.name}</Text>
+
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => {
+                if (isWishlisted) {
+                  dispatch(removefromwishlist(product.id));
+                } else {
+                  dispatch(addtowishlist(product));
+                }
+              }}
+            >
               <View style={styles.iconbox}>
-                <Ionicons name="heart-outline" size={30} color="#afadad" />
+                <Ionicons
+                  name={isWishlisted ? 'heart' : 'heart-outline'}
+                  size={30}
+                  color={isWishlisted ? '#E5484D' : '#afadad'}
+                />
               </View>
             </TouchableOpacity>
           </View>
@@ -161,9 +187,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 400,
     backgroundColor: '#f9f9f9',
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
-  
+
   container: {
     padding: 20,
     paddingRight: 30,

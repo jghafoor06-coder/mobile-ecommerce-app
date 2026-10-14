@@ -1,14 +1,26 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { products } from '../../data/data.json';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useDispatch, useSelector } from 'react-redux';
+import { removefromwishlist } from '../../redux/wishlist/WishlistSlice';
 
 const Wishlist = ({ navigation }) => {
+  const dispatch = useDispatch();
 
-  const removeItem = () => {
-     const updated = products.filter(item => item.id !== products.id) 
-      
-  }
+  // Read the actual wishlist array from Redux
+  const wishlistItems = useSelector(state => state.wishlist.item);
+
+  // Remove a product using its ID
+  const removeItem = (id)=> {
+    dispatch(removefromwishlist(id));
+  };
 
   return (
     <View style={styles.container}>
@@ -16,22 +28,58 @@ const Wishlist = ({ navigation }) => {
         <Text style={styles.headerTitle}>My Wishlist</Text>
       </View>
 
-      {products.length === 0 ? (
+      {wishlistItems.length === 0 ? (
         <View style={styles.center}>
+          <Ionicons name="heart-outline" size={55} color="#ccc" />
           <Text style={styles.emptyText}>Your wishlist is empty</Text>
         </View>
       ) : (
-        <View style={styles.card}>
-          <Image source={{ uri: products[0].image }} style={styles.Image} />
-          <View style={styles.info}>
-            <Text style={styles.name}>{products[0].name}</Text>
-            <Text style={styles.price}>$ {products[0].price}</Text>
-          </View>
-          <TouchableOpacity style={styles.removeBtn}>
-            <Ionicons name="trash-outline" size={22} color="#ff6b6b" />
-          </TouchableOpacity>
-        </View>
+        <FlatList
+          data={wishlistItems}
+          keyExtractor={item => String(item.id)}
+          contentContainerStyle={{ paddingBottom: 15 }}
+          ItemSeparatorComponent={() => <View style={{ height: 14 }} />}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate('productdetail', {
+                    productId: item.id,
+                  })
+                }
+              >
+                <Image
+                  source={{ uri: item.image }}
+                  style={styles.Image}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
+
+              <View style={styles.info}>
+                <Text style={styles.name} numberOfLines={2}>
+                  {item.name}
+                </Text>
+
+                <Text style={styles.price}>
+                  {item.price != null ? `$ ${item.price}` : 'Price unavailable'}
+                </Text>
+
+                <Text style={styles.category}>{item.category}</Text>
+              </View>
+
+              <TouchableOpacity
+                style={styles.removeBtn}
+                activeOpacity={0.7}
+                onPress={() => removeItem(item.id)}
+              >
+                <Ionicons name="trash-outline" size={22} color="#ff6b6b" />
+              </TouchableOpacity>
+            </View>
+          )}
+        />
       )}
+
       <View style={{ marginTop: 20 }}>
         <TouchableOpacity
           style={styles.shopButton}
@@ -79,7 +127,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 12,
     borderRadius: 8,
-    textAlign: "center",
+    alignItems: 'center',
   },
   shopButtonText: {
     color: '#fff',
@@ -116,6 +164,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#76C893',
     fontWeight: 'bold',
+    marginTop: 4,
+  },
+  category: {
+    fontSize: 12,
+    color: '#888',
     marginTop: 4,
   },
   removeBtn: {
