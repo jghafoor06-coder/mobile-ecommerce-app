@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { Provider } from 'react-redux';
-import { store } from './src/redux/store';
+import { store, persistor } from './src/redux/store';
 
 import Root from './src/navigation/Root';
 import RNBootSplash from 'react-native-bootsplash';
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   useEffect(() => {
@@ -21,9 +22,11 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Root />
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }

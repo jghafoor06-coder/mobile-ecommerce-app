@@ -1,8 +1,28 @@
-import { configureStore } from '@reduxjs/toolkit';
-import WishlistReducer from './wishlist/WishlistSlice';
+
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  persistReducer,
+  persistStore,
+} from 'redux-persist';
+
+import wishlistReducer from './wishlist/WishlistSlice';
+
+const wishlistPersistConfig = {
+  key: 'wishlist',
+  storage: AsyncStorage,
+};
+
+const rootReducer = combineReducers({
+  wishlist: persistReducer(wishlistPersistConfig, wishlistReducer),
+});
 
 export const store = configureStore({
-  reducer: {
-    wishlist: WishlistReducer,
-  },
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+
+export const persistor = persistStore(store);
