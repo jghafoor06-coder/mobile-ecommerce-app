@@ -10,11 +10,7 @@ import React from 'react';
 import { useRoute } from '@react-navigation/native';
 import { useState, useEffect } from 'react';
 
-import Animated, {
-  FadeInDown,
-  Easing,
-  FadeIn,
-} from 'react-native-reanimated';
+import Animated, { FadeInDown, Easing, FadeIn } from 'react-native-reanimated';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SecondHeader from '../../components/SecondHeader';
 import { products } from '../../data/data.json';
