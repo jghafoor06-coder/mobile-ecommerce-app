@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   View,
   Text,
@@ -5,99 +6,42 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
-  ActivityIndicator,
 } from 'react-native';
+
 import Animated, {
   FadeInDown,
   Easing,
   FadeInLeft,
 } from 'react-native-reanimated';
-import React, { useState, useCallback } from 'react';
+
 import SecondHeader from '../../components/SecondHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { getAllCarts, getSingleProduct, deleteCart } from '../../api/api';
-import { useFocusEffect } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from '../../redux/cart/cartSlice';
 
 const Cart = () => {
-  const [items, setItems] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
-
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
-  useFocusEffect(
-    useCallback(() => {
-      const fetchCarts = async () => {
-        try {
-          setLoading(true);
+  const cartItems = useSelector(state => state.cart.item);
 
-          const cartData = await getAllCarts();
-          const safeData = Array.isArray(cartData) ? cartData : [];
-
-          let fullItems = [];
-          let sum = 0;
-
-          for (const cart of safeData) {
-            for (const item of cart.products) {
-              const productId = item.productId;
-
-              const product = await getSingleProduct(productId);
-
-              if (!product) continue;
-
-              const newItem = {
-                id: product.id,
-                title: product.title,
-                price: product.price,
-                description: product.description,
-                image: product.image,
-                quantity: item.quantity || 1,
-              };
-
-              fullItems.push(newItem);
-              sum += product.price * newItem.quantity;
-            }
-          }
-
-          setItems(fullItems);
-          setTotal(sum);
-          setLoading(false);
-        } catch (error) {
-          console.log('Error fetching cart:', error);
-          setLoading(false);
-        }
-      };
-
-      fetchCarts();
-    }, []),
+  const total = cartItems.reduce(
+    (sum, item) => sum + Number(item.price || 0),
+    0,
   );
 
-  const handleDelete = async id => {
-    try {
-      await deleteCart(id);
-
-      const updated = items.filter(item => item.id !== id);
-      setItems(updated);
-
-      const newTotal = updated.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0,
-      );
-
-      setTotal(newTotal);
-    } catch (error) {
-      console.log('Delete error:', error);
-    }
+  const removeItem = id => {
+    dispatch(removeFromCart(id));
   };
 
-  if (loading) {
-    return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#76C893" />
-      </View>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <View style={styles.center}>
+  //       <ActivityIndicator size="large" color="#76C893" />
+  //     </View>
+  //   );
+  // }
 
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -113,12 +57,12 @@ const Cart = () => {
           <Text style={styles.righttext}>Salatagia City, Central Java</Text>
         </Animated.View>
 
-        {items.length === 0 ? (
+        {cartItems.length === 0 ? (
           <Text style={styles.emptyText}>Your cart is empty</Text>
         ) : (
           <FlatList
-            data={items}
-            keyExtractor={(item, index) => index.toString()}
+            data={cartItems}
+            keyExtractor={item => String(item.id)}
             showsVerticalScrollIndicator={false}
             style={{ flex: 1, marginTop: 10 }}
             renderItem={({ item }) => (
@@ -139,7 +83,7 @@ const Cart = () => {
                     }
                   >
                     <Text numberOfLines={2} style={styles.name}>
-                      {item.title}
+                      {item.name}
                     </Text>
                   </TouchableOpacity>
 
@@ -153,14 +97,14 @@ const Cart = () => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <View>
+                    {/* <View>
                       <Text style={styles.qty}>Qty: {item.quantity}</Text>
 
                       <Text style={styles.price}>$ {item.price}</Text>
-                    </View>
+                    </View> */}
 
                     <TouchableOpacity
-                      onPress={() => handleDelete(item.id)}
+                      onPress={() => removeItem(item.id)}
                       style={{ justifyContent: 'center', paddingRight: 10 }}
                       hitSlop={{ top: 10, left: 10, right: 10, bottom: 10 }}
                     >

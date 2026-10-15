@@ -1,26 +1,21 @@
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
   ActivityIndicator,
 } from 'react-native';
 import React from 'react';
 import { useRoute } from '@react-navigation/native';
 import { useState, useEffect } from 'react';
-import { addToCart } from '../../api/api';
 
 import Animated, {
   FadeInDown,
   Easing,
   FadeIn,
-  FadeInUp,
 } from 'react-native-reanimated';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { getSingleProduct } from '../../api/api';
 import SecondHeader from '../../components/SecondHeader';
 import { products } from '../../data/data.json';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +23,7 @@ import {
   addtowishlist,
   removefromwishlist,
 } from '../../redux/wishlist/WishlistSlice';
+import { addToCart, removeFromCart } from '../../redux/cart/cartSlice';
 
 const ProductsDetail = ({ navigation }) => {
   const route = useRoute();
@@ -36,19 +32,24 @@ const ProductsDetail = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const wishlistItems = useSelector(state => state.wishlist.item);
+  const cartItems = useSelector(state => state.cart.item);
+
+  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState(null);
+
+  const isAddedToCart = cartItems.some(
+    item => String(item.id) === String(product?.id),
+  );
 
   const isWishlisted = wishlistItems.some(
     item => String(item.id) === String(product?.id),
   );
 
-  const [loading, setLoading] = useState(true);
-  const [product, setProduct] = useState(null);
-
   useEffect(() => {
-    const product = products.find(
+    const foundProduct = products.find(
       item => String(item.id) === String(productId),
     );
-    setProduct(product || null);
+    setProduct(foundProduct || null);
     setLoading(false);
   }, [productId]);
 
@@ -137,16 +138,11 @@ const ProductsDetail = ({ navigation }) => {
         <TouchableOpacity
           style={styles.cartbutton}
           activeOpacity={0.8}
-          onPress={async () => {
-            try {
-              await addToCart(product.id);
-              Alert.alert('Success', 'Product added to cart!');
-            } catch (error) {
-              console.log('Error adding to cart:', error);
-              Alert.alert(
-                'Error',
-                'Failed to add product to cart. Please try again.',
-              );
+          onPress={() => {
+            if (isAddedToCart) {
+              dispatch(removeFromCart(product.id));
+            } else {
+              dispatch(addToCart(product));
             }
           }}
         >
@@ -156,7 +152,9 @@ const ProductsDetail = ({ navigation }) => {
             color="white"
             style={{ marginRight: 8 }}
           />
-          <Text style={styles.cartButtonText}>ADD TO CART</Text>
+          <Text style={styles.cartButtonText}>
+            {isAddedToCart ? 'REMOVE FROM CART' : 'ADD TO CART'}
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
