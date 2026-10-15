@@ -111,7 +111,9 @@ const Login = ({ navigation }) => {
               />
             </Animated.View>
 
-            <Animated.View entering={FadeInUp.delay(500).duration(800).easing(Easing.ease)}>
+            <Animated.View
+              entering={FadeInUp.delay(500).duration(800).easing(Easing.ease)}
+            >
               <TouchableOpacity style={styles.loginbutton} activeOpacity={0.7}>
                 <Text style={styles.buttontext}>LogIn</Text>
               </TouchableOpacity>
