@@ -15,7 +15,7 @@ const Payments = () => {
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{ flex: 1, backgroundColor: '#fff', height: "100%" }}>
+        <View style={{ flex: 1, backgroundColor: '#fff', height: '100%' }}>
           <SecondHeader title="Payments" showBack={true} showCart={true} />
 
           <View style={styles.maincontainer}>
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   payinput: {
     width: '100%',
     borderWidth: 1,
-    color: "black",
+    color: 'black',
     borderColor: '#eee',
     borderRadius: 8,
     padding: 10,
