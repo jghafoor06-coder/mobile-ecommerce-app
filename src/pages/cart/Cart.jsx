@@ -18,7 +18,11 @@ import SecondHeader from '../../components/SecondHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../../redux/cart/cartSlice';
+import {
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+} from '../../redux/cart/cartSlice';
 
 const Cart = () => {
   const navigation = useNavigation();
@@ -97,11 +101,23 @@ const Cart = () => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    {/* <View>
-                      <Text style={styles.qty}>Qty: {item.quantity}</Text>
+                    <View style={styles.quantityContainer}>
+                      <TouchableOpacity
+                        onPress={() => dispatch(decreaseQuantity(item.id))}
+                        style={styles.quantityButton}
+                      >
+                        <Text>-</Text>
+                      </TouchableOpacity>
 
-                      <Text style={styles.price}>$ {item.price}</Text>
-                    </View> */}
+                      <Text style={styles.quantityText}>{item.quantity}</Text>
+
+                      <TouchableOpacity
+                        onPress={() => dispatch(increaseQuantity(item.id))}
+                        style={styles.quantityButton}
+                      >
+                        <Text>+</Text>
+                      </TouchableOpacity>
+                    </View>
 
                     <TouchableOpacity
                       onPress={() => removeItem(item.id)}
@@ -213,9 +229,25 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
 
-  qty: {
-    fontSize: 12,
-    marginTop: 6,
+  quantityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+
+  quantityButton: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f2f2f2',
+    borderRadius: 6,
+  },
+
+  quantityText: {
+    marginHorizontal: 15,
+    fontSize: 16,
+    fontWeight: '600',
   },
 
   price: {
