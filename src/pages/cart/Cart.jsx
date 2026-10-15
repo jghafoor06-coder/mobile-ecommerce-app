@@ -31,7 +31,7 @@ const Cart = () => {
   const cartItems = useSelector(state => state.cart.item);
 
   const total = cartItems.reduce(
-    (sum, item) => sum + Number(item.price || 0),
+    (sum, item) => sum + Number(item.price || 0) * (item.quantity || 1),
     0,
   );
 
