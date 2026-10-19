@@ -50,6 +50,7 @@ const Category = () => {
           data={filteredproducts}
           keyExtractor={item => item.id.toString()}
           numColumns={2}
+          showVerticalScrollIndicator={false}
           contentContainerStyle={styles.container}
           columnWrapperStyle={{ justifyContent: 'space-between' }}
           renderItem={({ item }) => (
