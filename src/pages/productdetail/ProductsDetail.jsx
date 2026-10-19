@@ -156,7 +156,7 @@ const ProductsDetail = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buyButton}
           activeOpacity={0.8}
-          onPress={() => navigation.navigate('payment')}
+          onPress={() => navigation.navigate('payment', { productId: product.id })}
         >
           <Text style={styles.buyButtonText}>BUY NOW</Text>
         </TouchableOpacity>
