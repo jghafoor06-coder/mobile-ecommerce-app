@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 
   innerContainer: {
     width: '100%',
-    maxWidth: 320,
+    paddingHorizontal: 20,
   },
 
   maintext: {
