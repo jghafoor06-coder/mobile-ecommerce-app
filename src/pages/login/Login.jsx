@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
 
   subtext: {
     color: '#a3a2a0',
-    fontSize: 16,
+    fontSize: 15,
     marginBottom: 25,
   },
 
